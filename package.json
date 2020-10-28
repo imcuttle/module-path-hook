@@ -30,7 +30,8 @@
   "files": [
     "es",
     "types",
-    "lib"
+    "lib",
+    "register.js"
   ],
   "keywords": [
     "imcuttle",
