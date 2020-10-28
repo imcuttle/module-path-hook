@@ -2,7 +2,7 @@
   "name": "module-path-hook",
   "version": "1.0.0",
   "description": "Module path hook for Node.js require",
-  "author": "余聪 <yucong06@meituan.com>",
+  "author": "imcuttle <imcuttle@163.com>",
   "scripts": {
     "test": "npx ava",
     "test:watch": "npm test -- --watch",
@@ -34,7 +34,7 @@
     "src"
   ],
   "keywords": [
-    "余聪",
+    "imcuttle",
     "module",
     "path",
     "hook",
@@ -43,7 +43,7 @@
   "main": "lib",
   "types": "types",
   "license": "MIT",
-  "repository": "余聪/module-path-hook",
+  "repository": "imcuttle/module-path-hook",
   "module": "es",
   "ava": {
     "files": [

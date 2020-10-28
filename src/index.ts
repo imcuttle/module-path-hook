@@ -1,6 +1,6 @@
 /**
  * Module path hook for Node.js require
- * @author 余聪
+ * @author imcuttle
  */
 
 import requireResolveHook, { Match } from 'require-resolve-hook'
