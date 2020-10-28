@@ -4,9 +4,10 @@
  * @date 2018/4/4
  */
 import modulePathHook from '../src'
+import * as nodeResolve from 'resolve'
 
 import test from 'ava'
-import { fixture } from './helper'
+import { fixture, globalNodeModules } from './helper'
 
 test('modules: vendor', (t) => {
   const { unhook } = modulePathHook({
@@ -47,5 +48,17 @@ test('match', (t) => {
 
   t.is(require.resolve('./fixture/vendor/react'), fixture('vendor/react.js'))
 
+  unhook()
+})
+
+test('normal', (t) => {
+  const { unhook } = modulePathHook(
+    {
+      // modules: [fixture('vendor')]
+    },
+    /./
+  )
+
+  t.is(require.resolve('require-resolve-hook'), nodeResolve.sync('require-resolve-hook'))
   unhook()
 })

@@ -20,7 +20,9 @@ yarn add module-path-hook
 ## Usage
 
 ```javascript
-const modulePathHook = require('module-path-hook')
+require('module-path-hook/register')({
+  alias: {}
+})
 ```
 
 ## Contributing

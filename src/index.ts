@@ -5,6 +5,7 @@
 
 import requireResolveHook, { Match } from 'require-resolve-hook'
 import { isAbsolute, dirname } from 'path'
+import { builtinModules } from 'module'
 import * as fs from 'fs'
 import { ResolverFactory, CachedInputFileSystem } from 'enhanced-resolve'
 
@@ -16,9 +17,11 @@ export type Options = Omit<CreateResolverOptions, 'fileSystem' | 'useSyncFileSys
 
 function modulePathHook(
   { fileSystem = new CachedInputFileSystem(fs, 4000), ...options }: Options = {},
-  match: Match = (id) => !isAbsolute(id) && !id.startsWith('.')
+  match: Match = (id) => !builtinModules.includes(id) && !isAbsolute(id) && !id.startsWith('.')
 ) {
   const resolver = ResolverFactory.createResolver({
+    mainFields: ['main', 'browser'],
+    exportsFields: [],
     ...options,
     fileSystem,
     useSyncFileSystemCalls: true

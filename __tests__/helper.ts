@@ -8,4 +8,8 @@ function fixture(...argv: string[]) {
   return nps.join.apply(nps, [__dirname, 'fixture'].concat(argv))
 }
 
-export { fixture }
+function globalNodeModules(...argv: string[]) {
+  return nps.join.apply(nps, [__dirname, '../../node_modules'].concat(argv))
+}
+
+export { fixture, globalNodeModules }
