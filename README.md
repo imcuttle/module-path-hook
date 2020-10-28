@@ -20,9 +20,20 @@ yarn add module-path-hook
 ## Usage
 
 ```javascript
+/**
+  app/
+    index.js
+    foo.js
+ */
 require('module-path-hook/register')({
-  alias: {}
+  // See webpack resolve: https://webpack.docschina.org/configuration/resolve/
+  alias: {
+    '@app': '/app/'
+  }
 })
+
+require.resolve('@app') === '/app/index.js'
+require.resolve('@app/foo') === '/app/foo.js'
 ```
 
 ## Contributing
