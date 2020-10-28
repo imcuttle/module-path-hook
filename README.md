@@ -36,6 +36,11 @@ require.resolve('@app') === '/app/index.js'
 require.resolve('@app/foo') === '/app/foo.js'
 ```
 
+## Related
+
+- [require-resolve-hook](https://github.com/imcuttle/require-resolve-hook/) - Module to hook into the Node.js require and require.resolve function
+- [require-fallback-middle](https://github.com/imcuttle/require-fallback-middle) - Module to fallback the Node.js require and require.resolve function
+
 ## Contributing
 
 - Fork it!
