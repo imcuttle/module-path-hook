@@ -1,6 +1,6 @@
 {
   "name": "module-path-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Module path hook for Node.js require",
   "author": "imcuttle <imcuttle@163.com>",
   "scripts": {
