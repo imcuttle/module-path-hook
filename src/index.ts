@@ -26,8 +26,16 @@ function modulePathHook(
     fileSystem,
     useSyncFileSystemCalls: true
   })
-  return requireResolveHook(match, (id, parent, isMain, options) => {
-    return resolver.resolveSync({}, parent?.filename ? dirname(parent.filename) : process.cwd(), id)
+
+  return requireResolveHook(match, (id, parent) => {
+    try {
+      return resolver.resolveSync({}, parent?.filename ? dirname(parent.filename) : process.cwd(), id)
+    } catch (err) {
+      if (/^Can't resolve/.test(err.message)) {
+        return false
+      }
+      throw err
+    }
   })
 }
 
